@@ -12,6 +12,7 @@ global.PlayVideo = function (provider, count)
 		{
             global.readyToPlay = true;
 			provider.play(count);
+            print("play");
 		}
 	}
 }

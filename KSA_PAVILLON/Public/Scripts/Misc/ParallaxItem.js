@@ -10,7 +10,6 @@
 const screen = script.obj.getComponent("Component.ScreenTransform");
 
 var oldX = null
-var oldY = null
 
 function Clamp(num, min, max) {
   return num <= min 
@@ -23,19 +22,14 @@ function Clamp(num, min, max) {
 script.api.UpdateParallax = function (offsetX, offsetY)
 {
     var newX;
-    var newY;
     if(script.isClamp){
         newX = Clamp(offsetX * script.offsetXStrength,script.minX,script.maxX);
-        newY = Clamp(offsetY * script.offsetYStrength,script.minY,script.maxY);
         if (oldX != null) {
             newX = Lerp(oldX, newX, 0.3)
-            newY = Lerp(oldY, newY, 0.3)
         }
     }else{
         newX = offsetX * script.offsetXStrength;
-        newY = offsetY * script.offsetYStrength;
     }
-    screen.anchors.setCenter(new vec2(newX,newY));
+    screen.anchors.setCenter(new vec2(newX,screen.anchors.getCenter().y));
     oldX = newX
-    oldY = newY
 }

@@ -28,6 +28,7 @@ function Start()
         script.api.subScene.GetSceneScript().api.UserSmileEvent.push(OnUserSmiled);
         init = true;
     }
+    haveSmiled = false;
     script.whiteWallMat.mainPass.baseColor = new vec4(1,1,1,0);
 }
 
