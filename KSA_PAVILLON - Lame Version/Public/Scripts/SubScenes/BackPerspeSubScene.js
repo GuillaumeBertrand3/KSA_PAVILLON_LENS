@@ -56,7 +56,7 @@ function UpdateAnimationGoAway(ratio)
 {
     script.matBlur.mainPass.blurFactor = Lerp(5,0,ratio);
     pavillonTransform.setWorldPosition(vec3.lerp(transformStart.getWorldPosition(), transformEnd.getWorldPosition(), ratio));
-    pavillonTransform.setWorldRotation(quat.lerp(transformStart.getWorldRotation(), transformEnd.getWorldRotation(), ratio));
+    pavillonTransform.setWorldRotation(quat.lerp(transformStart.getWorldRotation(), pivotEndTransform.getWorldRotation(), ratio));
 }
 animationGoAway.OnEnd = OnEndAnimGoAway;
 function OnEndAnimGoAway()
